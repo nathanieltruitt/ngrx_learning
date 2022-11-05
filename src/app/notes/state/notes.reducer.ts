@@ -3,13 +3,7 @@ import * as NotesActions from './notes.actions';
 import { NotesState } from './notes.state';
 
 export const initialState: NotesState = {
-  notes: [
-    {
-      id: 1,
-      title: 'Test Note',
-      content: 'Hello I am a note',
-    },
-  ],
+  notes: [],
 };
 
 export const notesReducer = createReducer(
@@ -21,9 +15,7 @@ export const notesReducer = createReducer(
     } else {
       id = 1;
     }
-
-    state.notes.push({ id, title, content });
-    return { notes: state.notes };
+    return { notes: [...state.notes, { id, title, content }] };
   }),
   on(NotesActions.deleteNote, (state, { id }) => {
     state.notes.splice(id - 1, 1);

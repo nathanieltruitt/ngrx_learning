@@ -10,6 +10,7 @@ import { NotesRoutingModule } from './notes/notes-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { NotesModule } from './notes/notes.module';
 import { notesReducer } from './notes/state/notes.reducer';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,9 @@ import { notesReducer } from './notes/state/notes.reducer';
   ],
   imports: [
     BrowserModule,
+    NotesModule,
     AppRoutingModule,
     StoreModule.forRoot({ notes: notesReducer }),
-    NotesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

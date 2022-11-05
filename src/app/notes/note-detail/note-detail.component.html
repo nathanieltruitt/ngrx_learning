@@ -1,0 +1,52 @@
+<div class="fixed top-0 left-0 z-40 h-full w-full bg-black opacity-70"></div>
+<div id="outer-modal" class="flex h-full w-full items-center justify-center">
+  <div id="modal" class="z-50 mb-56 h-[35rem] w-[28rem] rounded-md bg-white">
+    <div
+      id="modal-header"
+      class="grid h-1/5 w-full grid-cols-2 grid-rows-1 border-b border-gray-400"
+    >
+      <div id="title-col">
+        <h2 class="text-2xl">Note Detail</h2>
+      </div>
+      <div id="btn-col">
+        <button
+          class="rounded-md bg-red-700 px-3 py-2 text-white active:bg-red-900"
+        >
+          Delete
+        </button>
+        <button (click)="onClose()" class="ml-2 text-center text-2xl">X</button>
+      </div>
+    </div>
+    <form #noteDetailForm="ngForm" (ngSubmit)="onSubmit(noteDetailForm)">
+      <div id="modal-body" class="border-b border-gray-400 pb-6">
+        <div class="container mx-auto px-6">
+          <label for="title" class="text-lg">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            [ngModel]="title"
+            class="my-2 block rounded-md border border-gray-500 p-2 text-lg focus:outline-none"
+          />
+
+          <textarea
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            class="border border-gray-500 focus:outline-none"
+            [ngModel]="content"
+          ></textarea>
+        </div>
+      </div>
+      <div id="modal-footer" class="py-3">
+        <button
+          class="float-right mr-5 rounded-md bg-blue-600 px-3 py-2 text-white active:bg-blue-800"
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
